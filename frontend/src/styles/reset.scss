@@ -13,9 +13,9 @@ html {
 
 body {
   line-height: 1;
-  min-height: 100%;
+  min-height: 100vh;
 
-  background: $white;
+  background: $gradient;
   color: $black;
 
   font-size: 1rem;
@@ -53,6 +53,7 @@ button {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 ol,

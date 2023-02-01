@@ -2,6 +2,12 @@
 @import "./reset.scss";
 
 // --- pages ---
-@import "./pages/home.scss";
+@import "./pages/connexion.scss";
+@import "./pages/search.scss";
+@import "./pages/details.scss";
+@import "./pages/ajout.scss";
 
 // --- components ---
+@import "./components/header.scss";
+@import "./components/footer.scss";
+@import "./components/card.scss";
