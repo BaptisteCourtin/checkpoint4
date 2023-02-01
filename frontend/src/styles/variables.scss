@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Faustina:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap");
+
+$white: rgb(250, 250, 250);
+$black: rgb(12, 12, 12);
+$gray: rgb(231, 231, 231);
+
+$first: #54f2f2;
+$second: #57467b;
+$third: #ffee93;
+$fourth: #f4a5ae;
+$fifth: #f5d7e3;
+
+$gradient: linear-gradient(
+  to left top,
+  #f5d7e3,
+  #f5cad8,
+  #f5becc,
+  #f5b1be,
+  #f4a5ae
+);
+
+$h1: 4rem;
+$h2: 3rem;
+$h3: 2rem;
+$h4: 1.5rem;
+
+$title: "Faustina", serif;
+$text: "Open Sans", sans-serif;
