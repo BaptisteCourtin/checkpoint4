@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 import logoNuage from "@assets/logoNuage.png";
 
@@ -22,17 +23,21 @@ function Ajout() {
 
   const handleAjout = (e) => {
     e.preventDefault();
+    console.log(nom, prix);
     if (nom !== "" && prix !== "") {
-      axios.put(`${import.meta.env.VITE_BACKEND_URL}/dream/put/${idDream}`, {
-        nom,
-        espece,
-        lieu,
-        prix,
-        temps,
-        description,
-      });
+      axios
+        .put(`${import.meta.env.VITE_BACKEND_URL}/dream/put/${idDream}`, {
+          nom,
+          espece,
+          lieu,
+          prix,
+          temps,
+          description,
+        })
+        .then(() => navigate("/search"));
+    } else {
+      toast.error("il manque des champs");
     }
-    navigate("/search");
   };
 
   // --- pour l'image ---
