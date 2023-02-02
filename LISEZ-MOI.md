@@ -1,6 +1,8 @@
 le figma, les user stories, et le model de la BDD sont dans les assets du front
 Je n'ai pas eu le temps de faire le multer pour l'ajout d'image
 
+On peut se connecter en temps qu'admin avec email : kevindu75@gmail.com && password : admin
+
 ## Installation & Utilisation
 
 ### Pour commencer un projet
