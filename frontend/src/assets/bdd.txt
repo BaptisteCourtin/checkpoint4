@@ -1,0 +1,20 @@
+BDD : 
+
+utilisateurs + admin :
+	-> idUser
+	-> email
+	-> nom 
+	-> prenom
+	-> password
+	-> role
+
+
+dream :
+	-> idDream
+	-> nom
+	-> image
+	-> espece
+	-> lieu
+	-> prix 
+	-> temps
+	-> description
