@@ -1,0 +1,134 @@
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.champs {
+		margin: 2rem 0 ;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		width: 90%;
+
+		label {
+			position: relative;
+			width: 100%;
+
+			input {
+				color: transparent;
+			}
+			input:focus,
+			input:valid {
+				color: $black;
+			}
+
+			input {
+				border: 3px solid $black;
+				background-color: transparent;
+				border-radius: 10px;
+				padding: 0.5rem;
+				width: 100%;
+				height: 50px;
+				/* enleve la border de base */
+				outline: none;
+
+				&:focus {
+					border-color: $first;
+
+					& + p {
+						transform: translate(5px, -9px);
+						padding: 0 5px;
+						color: $black;
+						border-right: 3px solid $first;
+						border-left: 3px solid $first;
+						border-radius: 5px;
+						line-height: 20px;
+						background-color: $fourth;
+					}
+				}
+
+				&:valid {
+					border-color: green;
+
+					& + p {
+						transform: translate(5px, -9px);
+						font-size: 13px;
+						padding: 0 5px;
+						color: green;
+						border-right: 3px solid green;
+						border-left: 3px solid green;
+						border-radius: 5px;
+						line-height: 20px;
+						background-color: $fourth;
+						transition: 0s;
+					}
+				}
+
+				&[type="number"]::-webkit-inner-spin-button,
+        &[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+			}
+
+			p {
+				position: absolute;
+				left: 10px;
+				top: 0px;
+				/* comme input height */
+				line-height: 50px;
+				transition: 0.3s;
+			}
+
+			.view-password {
+				position: absolute;
+				right: 10px;
+				top: 17px;
+				background-color: $fourth;
+				border: none;
+			}
+		}
+
+		.option{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 2.5rem;
+
+			select{
+				margin-left: 0.25rem;
+				height: 100%;
+				border-radius: 10px;
+				border: 2px black solid;
+				padding: 0.5rem;
+			}
+		}
+
+		.textarea{
+			height: 10rem;
+			width: 100%;
+
+			textarea{
+				width: 100%;
+				height: 100%;
+				padding: 0.5rem;
+				border: 2px black solid;
+				border-radius: 10px;
+				resize: none;
+			}
+		}
+	}
+
+	.button-bas {
+		padding: 0.5rem;
+		margin: 1rem;
+		border-radius: 10px;
+		border: 2px $first solid;
+		background-color: $first;
+		font-weight: 600;
+	}
+}

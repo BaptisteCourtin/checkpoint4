@@ -1,44 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { toast } from "react-hot-toast";
+
+import UserRoleContext from "@components/context/UserRoleContext";
 
 const seConnecter = ({ setCompo }) => {
   const navigate = useNavigate();
+  const { setRole } = useContext(UserRoleContext);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const [typePwd, setTypePwd] = useState(true);
 
   const handleConnection = (e) => {
     e.preventDefault();
-    navigate("/search");
-    // if (email && password) {
-    //   axios
-    //     .post(`${import.meta.env.VITE_PATH}/authFamille`, {
-    //       email,
-    //       password,
-    //     })
-    //     .then((ret) => {
-    //       const { familleId, token } = ret.data;
-
-    //       setFamilleId(familleId);
-    //       sessionStorage.setItem("BabyPlacefamilleId", familleId);
-
-    //       updateToNote(ret.data.familleId);
-    //       deleteAncienResa(ret.data.familleId);
-
-    //       navigate("/appli/search", {
-    //         state: {
-    //           token,
-    //         },
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //       toast.error("le mot de passe ou l'email est faux");
-    //     });
-    // }
+    if (email && password) {
+      console.log(email, password);
+      axios
+        .post(`${import.meta.env.VITE_BACKEND_URL}/authUser`, {
+          email,
+          password,
+        })
+        .then((ret) => {
+          setRole(ret.data.role);
+          sessionStorage.setItem("catchADreamRole", ret.data.role);
+          navigate("/search");
+        })
+        .catch((err) => {
+          console.error(err);
+          toast.error("le mot de passe ou l'email est faux");
+        });
+    }
   };
 
   return (
@@ -52,8 +47,8 @@ const seConnecter = ({ setCompo }) => {
       </button>
 
       <h3>Se connecter</h3>
-      <form>
-        <div>
+      <form onSubmit={(e) => handleConnection(e)}>
+        <div className="champs">
           <label htmlFor="email">
             <input
               required
@@ -86,13 +81,7 @@ const seConnecter = ({ setCompo }) => {
             </button>
           </label>
         </div>
-        <button
-          type="submit"
-          className="button-bas"
-          onClick={(e) => {
-            handleConnection(e);
-          }}
-        >
+        <button type="submit" className="button-bas">
           Se connecter
         </button>
       </form>

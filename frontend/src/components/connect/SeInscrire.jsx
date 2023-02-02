@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { toast } from "react-hot-toast";
+
+import UserRoleContext from "@components/context/UserRoleContext";
 
 const seInscrire = ({ setCompo }) => {
   const navigate = useNavigate();
+  const { setRole } = useContext(UserRoleContext);
 
   const [email, setEmail] = useState("");
   const [nom, setNom] = useState("");
@@ -16,33 +21,28 @@ const seInscrire = ({ setCompo }) => {
 
   const handleInscription = (e) => {
     e.preventDefault();
-    navigate("/search");
-    // if (email && password === password2) {
-    //   axios
-    //     .post(`${import.meta.env.VITE_PATH}/inscriptionAppFamille`, {
-    //       email,
-    //       password,
-    //     })
-    //     .then((ret) => {
-    //       const { token, familleId } = ret.data;
-
-    //       setFamilleId(familleId);
-    //       sessionStorage.setItem("BabyPlacefamilleId", familleId);
-
-    //       navigate("/appli/search", {
-    //         state: {
-    //           token,
-    //         },
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       if (err.response.data.errno === 1062) {
-    //         setOtherPassword(true);
-    //       } else {
-    //         console.error(err);
-    //       }
-    //     });
-    // }
+    if (password === password2) {
+      axios
+        .post(`${import.meta.env.VITE_BACKEND_URL}/inscriptionUser`, {
+          email,
+          password,
+          nom,
+          prenom,
+        })
+        .then((ret) => {
+          setRole(ret.data.role);
+          sessionStorage.setItem("catchADreamRole", ret.data.role);
+          navigate("/search");
+        })
+        .catch((err) => {
+          if (err.response.data.errno === 1062) {
+            toast.error("cet email est déjà utilisé");
+          } else {
+            console.error(err);
+            toast.error("le mot de passe ou l'email est faux");
+          }
+        });
+    }
   };
 
   return (
@@ -61,8 +61,8 @@ const seInscrire = ({ setCompo }) => {
         réellement au vu du fait que ce site n'est pas sécurisé. Merci😘
       </p>
 
-      <form>
-        <div>
+      <form onSubmit={(e) => handleInscription(e)}>
+        <div className="champs">
           <label htmlFor="email">
             <input
               required
@@ -142,11 +142,7 @@ const seInscrire = ({ setCompo }) => {
             </button>
           </label>
         </div>
-        <button
-          type="button"
-          className="button-bas"
-          onClick={(e) => handleInscription(e)}
-        >
+        <button type="submit" className="button-bas">
           Créer un compte
         </button>
       </form>

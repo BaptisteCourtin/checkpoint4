@@ -6,6 +6,11 @@ header {
   width: 100%;
   z-index: 10;
 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
   a {
     width: max-content;
     padding: 0.5rem;
@@ -16,6 +21,17 @@ header {
 
     img {
       height: 100%;
+    }
+  }
+
+  .col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+      font-size: 0.8rem;
     }
   }
 }
