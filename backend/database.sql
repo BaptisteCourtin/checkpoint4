@@ -1,9 +1,3 @@
--- DROP DATABASE IF EXISTS checkpoint4;
-
--- CREATE DATABASE checkpoint4;
-
--- USE checkpoint4; 
-
 CREATE TABLE `dream` (
   `idDream` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(100),

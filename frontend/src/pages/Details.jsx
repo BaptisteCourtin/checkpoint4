@@ -47,13 +47,13 @@ function Details() {
             </p>
             <p className="espece">
               <span> Espèce qui vous accompagneras :</span>{" "}
-              {espece ? espece : "personne, à pars vous et vos pensées"}
+              {espece || "personne, à pars vous et vos pensées"}
             </p>
             <p className="temps">
               <span>Temps passé dans ce rêve :</span> {temps} h
             </p>
             <p className="prix">
-              <span>{`Le prix :`}</span>{" "}
+              <span>Le prix :</span>{" "}
               {`(franchement ça vaut le coup) (on a plus une thune et on a faim) : `}
               {prix}€
             </p>
@@ -67,7 +67,7 @@ function Details() {
                 type="button"
                 onClick={() => handleCommander()}
               >
-                <Link to="/search">{`Commander`}</Link>
+                <Link to="/search">Commander</Link>
               </button>
               {role === "admin" && (
                 <button
@@ -75,7 +75,7 @@ function Details() {
                   type="button"
                   onClick={() => handleSupprimer()}
                 >
-                  {`Supprimer`}
+                  Supprimer
                 </button>
               )}
             </div>

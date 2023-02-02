@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import logoNuage from "@assets/logoNuage.png";
 
@@ -27,5 +28,9 @@ function Card({ data }) {
     </div>
   );
 }
+
+Card.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default Card;

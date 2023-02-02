@@ -43,7 +43,6 @@ function Search() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/dream/getAll`)
       .then((res) => {
         setDreams(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -64,16 +63,10 @@ function Search() {
         temps: "a changer",
       })
       .then((res) => {
-        console.log("in Search :", res.data.insertId);
         navigate("/ajout", { state: { idDream: res.data.insertId } });
       })
       .catch((err) => {
-        if (err.response.data.errno === 1062) {
-          toast.error("cet email est déjà utilisé");
-        } else {
-          console.error(err);
-          toast.error("le mot de passe ou l'email est faux");
-        }
+        console.error(err);
       });
   };
 
@@ -184,15 +177,18 @@ function Search() {
                 if (a.prix < b.prix) return -1;
                 if (a.prix > b.prix) return 1;
                 return 0;
-              } else if (tri === "Prix decroissant") {
+              }
+              if (tri === "Prix decroissant") {
                 if (a.prix > b.prix) return -1;
                 if (a.prix < b.prix) return 1;
                 return 0;
-              } else if (tri === "Recent") {
+              }
+              if (tri === "Recent") {
                 if (a.idDream > b.idDream) return -1;
                 if (a.idDream < b.idDream) return 1;
                 return 0;
-              } else if (tri === "Ancien") {
+              }
+              if (tri === "Ancien") {
                 if (a.idDream < b.idDream) return -1;
                 if (a.idDream > b.idDream) return 1;
                 return 0;

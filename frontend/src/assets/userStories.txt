@@ -1,0 +1,8 @@
+USER STORIES : 
+
+
+en tant qu'admin je veux pouvoir ajouter et supprimer des rêves 
+
+en tant qu'utilisateur je veux pouvoir voir une description des rêves
+
+en tant qu'utilisateur je veux pouvoir me connecter

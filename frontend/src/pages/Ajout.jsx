@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
 import logoNuage from "@assets/logoNuage.png";
@@ -8,7 +8,7 @@ function Ajout() {
   const navigate = useNavigate();
 
   const { state } = useLocation();
-  const idDream = state.idDream;
+  const { idDream } = state;
 
   const [nom, setNom] = useState("");
   const [espece, setEspece] = useState("aucune");
@@ -17,13 +17,12 @@ function Ajout() {
   const [temps, setTemps] = useState("2");
   const [description, setDescription] = useState("");
 
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const docImg = useRef(null);
 
   const handleAjout = (e) => {
     e.preventDefault();
     if (nom !== "" && prix !== "") {
-      console.log(nom, espece, lieu, prix, temps, description);
       axios.put(`${import.meta.env.VITE_BACKEND_URL}/dream/put/${idDream}`, {
         nom,
         espece,
@@ -36,15 +35,11 @@ function Ajout() {
     navigate("/search");
   };
 
-  // --- image ---
+  // --- pour l'image ---
 
-  // const SubmitPhoto = (e) => {
-  //   console.log(e.target.value);
-  //   setImage(e.target.value);
-  // };
+  const SubmitPhoto = () => {};
 
-  // ---
-
+  // --- annuler création ---
   const handleAnnuler = () => {
     axios
       .delete(`${import.meta.env.VITE_BACKEND_URL}/dream/deleteOne/${idDream}`)

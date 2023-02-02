@@ -1,78 +1,76 @@
 .ajout {
-	margin: 0 1rem ;
-	padding: 80px;
+  margin: 0 1rem;
+  padding: 80px;
 
-	.top-retour{
-		background-color: $second;
-		color: $white;
-		padding: 0.5rem;
-		border-radius: 10px;
-		margin: 1rem 0.5rem;
-		border: none;
-		font-weight: 700;
-		font-size: $h5;
-	}
+  .top-retour {
+    background-color: $second;
+    color: $white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin: 1rem 0.5rem;
+    border: none;
+    font-weight: 700;
+    font-size: $h5;
+  }
 
-	main{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		
-		h3{
-			margin: 1rem;
-		}
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-		form{
-			background-color: $fourth;
-			box-shadow: 0 0 15px $black;
-			padding: 0 1rem;
+    h3 {
+      margin: 1rem;
+    }
 
-			.champs{
-				max-width: 600px;
-			}
+    form {
+      background-color: $fourth;
+      box-shadow: 0 0 15px $black;
+      padding: 0 1rem;
 
-			.forImage{
-				input {
-					width: 0px;
-				}
+      .champs {
+        max-width: 600px;
+      }
 
-				img{
-					max-width: 100%;
-					max-height: 500px;	
-					border-radius: 20px;
-					margin: 1rem 0;
-					padding: 0.5rem;
-				}
-			}
-		}
+      .forImage {
+        input {
+          width: 0px;
+        }
 
-		.button-bas{
-			background-color: $second;
-			color: $white;
-			padding: 0.5rem;
-			border-radius: 10px;
-			margin: 1rem 0.5rem;
-			border: none;
-			font-weight: 700;
-			font-size: $h5;
-		}
-	}
+        img {
+          max-width: 100%;
+          max-height: 500px;
+          border-radius: 20px;
+          margin: 1rem 0;
+          padding: 0.5rem;
+        }
+      }
+    }
 
+    .button-bas {
+      background-color: $second;
+      color: $white;
+      padding: 0.5rem;
+      border-radius: 10px;
+      margin: 1rem 0.5rem;
+      border: none;
+      font-weight: 700;
+      font-size: $h5;
+    }
+  }
 
+  @media screen and (min-width: 800px) {
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-bottom: 2rem;
 
-	@media screen and (min-width: 800px) {
-		form{
-			display: flex;
-			flex-direction: row;
-			justify-content: space-evenly;
-			align-items: center;
-			padding-bottom: 2rem;
-
-			img{
-				max-width: 50%;
-				max-height: 700px;	
-			}
-		}
-	}
+      img {
+        max-width: 50%;
+        max-height: 700px;
+      }
+    }
+  }
 }

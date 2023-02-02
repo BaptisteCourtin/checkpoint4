@@ -18,7 +18,6 @@ const seConnecter = ({ setCompo }) => {
   const handleConnection = (e) => {
     e.preventDefault();
     if (email && password) {
-      console.log(email, password);
       axios
         .post(`${import.meta.env.VITE_BACKEND_URL}/authUser`, {
           email,
